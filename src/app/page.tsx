@@ -7,7 +7,7 @@ export default function Home() {
   return (
     <div className="flex flex-col">
       {/* Hero Section */}
-      <section className="relative hero-gradient py-32 px-4 overflow-hidden">
+      <section className="relative hero-gradient py-32 px-6 md:px-8 lg:px-12 overflow-hidden">
         {/* Background Video/Image Placeholder */}
         <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-accent/20"></div>
         <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg width=&quot;60&quot; height=&quot;60&quot; viewBox=&quot;0 0 60 60&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot;%3E%3Cg fill=&quot;none&quot; fill-rule=&quot;evenodd&quot;%3E%3Cg fill=&quot;%23F59E0B&quot; fill-opacity=&quot;0.05&quot;%3E%3Ccircle cx=&quot;30&quot; cy=&quot;30&quot; r=&quot;2&quot;/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')] opacity-30"></div>
@@ -18,10 +18,10 @@ export default function Home() {
               <div className="mb-6">
                 <Star className="inline-block w-16 h-16 text-accent animate-float mb-4 gold-glow" />
               </div>
-              <h1 className="text-5xl md:text-7xl font-bold bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent mb-6 animate-slide-up">
+              <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent mb-6 animate-slide-up">
                 Post-Surgery Fitness Recovery
               </h1>
-              <p className="text-xl md:text-2xl text-muted-foreground mb-12 max-w-4xl mx-auto lg:mx-0 animate-slide-up" style={{animationDelay: '0.2s'}}>
+              <p className="text-lg md:text-xl lg:text-2xl text-muted-foreground mb-12 max-w-4xl mx-auto lg:mx-0 animate-slide-up" style={{animationDelay: '0.2s'}}>
                 Professional fitness training tailored for your recovery journey.
                 Get back to your active lifestyle with personalized programs designed by experienced trainers.
               </p>
@@ -250,7 +250,7 @@ export default function Home() {
         <div className="container mx-auto">
           <div className="text-center mb-16">
             <Award className="inline-block w-12 h-12 text-accent mb-4" />
-            <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-6">
               Our Recovery Programs
             </h2>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
@@ -297,7 +297,7 @@ export default function Home() {
                     </div>
                   </div>
                 </div>
-                <CardTitle className="text-2xl text-accent">Pre-Surgery Preparation</CardTitle>
+                <CardTitle className="text-xl md:text-xl md:text-2xl text-accent">Pre-Surgery Preparation</CardTitle>
                 <CardDescription className="text-base">
                   Build strength and flexibility before your procedure for better recovery outcomes.
                 </CardDescription>
@@ -327,7 +327,7 @@ export default function Home() {
                     </div>
                   </div>
                 </div>
-                <CardTitle className="text-2xl text-accent">Post-Surgery Rehabilitation</CardTitle>
+                <CardTitle className="text-xl md:text-2xl text-accent">Post-Surgery Rehabilitation</CardTitle>
                 <CardDescription className="text-base">
                   Gentle, progressive exercises to restore function and build strength safely.
                 </CardDescription>
@@ -357,7 +357,7 @@ export default function Home() {
                     </div>
                   </div>
                 </div>
-                <CardTitle className="text-2xl text-accent">Long-term Wellness</CardTitle>
+                <CardTitle className="text-xl md:text-2xl text-accent">Long-term Wellness</CardTitle>
                 <CardDescription className="text-base">
                   Maintain your gains and prevent future injuries with ongoing fitness support.
                 </CardDescription>
@@ -383,10 +383,10 @@ export default function Home() {
           <div className="mb-6">
             <Star className="inline-block w-12 h-12 text-accent animate-pulse" />
           </div>
-          <h2 className="text-4xl md:text-5xl font-bold mb-6">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
             Ready to Begin Your Recovery Journey?
           </h2>
-          <p className="text-xl mb-12 max-w-3xl mx-auto opacity-90">
+          <p className="text-lg md:text-xl mb-12 max-w-3xl mx-auto opacity-90">
             Our experienced trainers specialize in post-surgical rehabilitation.
             Contact us today to discuss your specific needs and create a personalized recovery plan.
           </p>
