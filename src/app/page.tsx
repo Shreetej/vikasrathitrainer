@@ -1,65 +1,107 @@
-import Image from "next/image";
+import Link from "next/link";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 
 export default function Home() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
+    <div className="flex flex-col">
+      {/* Hero Section */}
+      <section className="relative bg-gradient-to-br from-background to-muted py-20 px-4">
+        <div className="container mx-auto text-center">
+          <h1 className="text-4xl md:text-6xl font-bold text-primary mb-6">
+            Post-Surgery Fitness Recovery
           </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+          <p className="text-xl md:text-2xl text-muted-foreground mb-8 max-w-3xl mx-auto">
+            Professional fitness training tailored for your recovery journey.
+            Get back to your active lifestyle with personalized programs designed by experienced trainers.
           </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Button size="lg" asChild>
+              <Link href="/contact">Start Your Recovery</Link>
+            </Button>
+            <Button variant="outline" size="lg" asChild>
+              <Link href="/trainers">Meet Our Trainers</Link>
+            </Button>
+          </div>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+      </section>
+
+      {/* Services Overview */}
+      <section className="py-16 px-4">
+        <div className="container mx-auto">
+          <h2 className="text-3xl md:text-4xl font-bold text-center text-primary mb-12">
+            Our Recovery Programs
+          </h2>
+          <div className="grid md:grid-cols-3 gap-8">
+            <Card>
+              <CardHeader>
+                <CardTitle className="text-accent">Pre-Surgery Preparation</CardTitle>
+                <CardDescription>
+                  Build strength and flexibility before your procedure for better recovery outcomes.
+                </CardDescription>
+              </CardHeader>
+              <CardContent>
+                <ul className="space-y-2 text-sm">
+                  <li>• Strength assessment</li>
+                  <li>• Mobility training</li>
+                  <li>• Breathing exercises</li>
+                  <li>• Mental preparation</li>
+                </ul>
+              </CardContent>
+            </Card>
+
+            <Card>
+              <CardHeader>
+                <CardTitle className="text-accent">Post-Surgery Rehabilitation</CardTitle>
+                <CardDescription>
+                  Gentle, progressive exercises to restore function and build strength safely.
+                </CardDescription>
+              </CardHeader>
+              <CardContent>
+                <ul className="space-y-2 text-sm">
+                  <li>• Phase-based recovery</li>
+                  <li>• Pain management</li>
+                  <li>• Range of motion</li>
+                  <li>• Progressive loading</li>
+                </ul>
+              </CardContent>
+            </Card>
+
+            <Card>
+              <CardHeader>
+                <CardTitle className="text-accent">Long-term Wellness</CardTitle>
+                <CardDescription>
+                  Maintain your gains and prevent future injuries with ongoing fitness support.
+                </CardDescription>
+              </CardHeader>
+              <CardContent>
+                <ul className="space-y-2 text-sm">
+                  <li>• Maintenance programs</li>
+                  <li>• Injury prevention</li>
+                  <li>• Lifestyle coaching</li>
+                  <li>• Progress tracking</li>
+                </ul>
+              </CardContent>
+            </Card>
+          </div>
         </div>
-      </main>
+      </section>
+
+      {/* Call to Action */}
+      <section className="bg-primary text-primary-foreground py-16 px-4">
+        <div className="container mx-auto text-center">
+          <h2 className="text-3xl md:text-4xl font-bold mb-6">
+            Ready to Begin Your Recovery Journey?
+          </h2>
+          <p className="text-xl mb-8 max-w-2xl mx-auto">
+            Our experienced trainers specialize in post-surgical rehabilitation.
+            Contact us today to discuss your specific needs and create a personalized recovery plan.
+          </p>
+          <Button size="lg" variant="secondary" asChild>
+            <Link href="/contact">Get Started Today</Link>
+          </Button>
+        </div>
+      </section>
     </div>
   );
 }
