@@ -1,4 +1,7 @@
-import { Card, CardContent, CardHeader } from "@/components/ui/card";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import Link from "next/link";
+import { Star, Heart, Award, Users, Quote, Calendar } from "lucide-react";
 
 const testimonials = [
   {
@@ -47,14 +50,12 @@ const testimonials = [
 
 function StarRating({ rating }: { rating: number }) {
   return (
-    <div className="flex">
+    <div className="flex gap-1">
       {[...Array(5)].map((_, i) => (
-        <span
+        <Star
           key={i}
-          className={`text-lg ${i < rating ? "text-chart-5" : "text-muted"}`}
-        >
-          ★
-        </span>
+          className={`w-5 h-5 ${i < rating ? "text-accent fill-current" : "text-muted-foreground"}`}
+        />
       ))}
     </div>
   );
@@ -62,56 +63,112 @@ function StarRating({ rating }: { rating: number }) {
 
 export default function Testimonials() {
   return (
-    <div className="container mx-auto py-16 px-4">
-      <div className="max-w-6xl mx-auto">
-        <div className="text-center mb-16">
-          <h1 className="text-4xl md:text-5xl font-bold text-primary mb-4">
+    <div className="min-h-screen">
+      {/* Hero Section */}
+      <section className="relative bg-gradient-to-br from-primary/5 to-accent/5 py-24 px-4 overflow-hidden">
+        <div className="absolute inset-0 bg-[url('/images/testimonials-hero.jpg')] bg-cover bg-center opacity-10"></div>
+        <div className="container mx-auto text-center relative z-10">
+          <div className="mb-6">
+            <Heart className="inline-block w-16 h-16 text-accent animate-float mb-4 gold-glow" />
+          </div>
+          <h1 className="text-4xl md:text-6xl font-bold bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent mb-6 animate-slide-up">
             Success Stories
           </h1>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+          <p className="text-xl md:text-2xl text-muted-foreground max-w-4xl mx-auto animate-slide-up" style={{animationDelay: '0.2s'}}>
             Hear from our clients who have successfully recovered and returned to their active lifestyles
             with the help of our specialized post-surgery fitness programs.
           </p>
         </div>
+      </section>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {testimonials.map((testimonial) => (
-            <Card key={testimonial.id} className="h-full">
-              <CardHeader className="pb-4">
-                <div className="flex items-center justify-between mb-2">
-                  <StarRating rating={testimonial.rating} />
-                </div>
-                <div>
-                  <h3 className="font-semibold text-primary">{testimonial.name}</h3>
-                  <p className="text-sm text-accent font-medium">{testimonial.surgery}</p>
-                </div>
-              </CardHeader>
-              <CardContent>
-                <blockquote className="text-muted-foreground italic">
-                  "{testimonial.quote}"
-                </blockquote>
-              </CardContent>
-            </Card>
-          ))}
-        </div>
-
-        <div className="text-center mt-16">
-          <div className="bg-muted rounded-lg p-8 max-w-2xl mx-auto">
-            <h2 className="text-2xl font-bold text-primary mb-4">
-              Ready for Your Success Story?
-            </h2>
-            <p className="text-muted-foreground mb-6">
-              Join hundreds of clients who have transformed their recovery journey with our expert guidance.
-            </p>
-            <a
-              href="/contact"
-              className="inline-flex items-center justify-center rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-4 py-2"
-            >
-              Start Your Journey
-            </a>
+      {/* Stats Section */}
+      <section className="py-16 px-4 bg-gradient-to-r from-background to-secondary/20">
+        <div className="container mx-auto">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8 text-center">
+            <div className="animate-fade-in">
+              <Users className="w-12 h-12 text-accent mx-auto mb-4" />
+              <div className="text-3xl md:text-4xl font-bold text-primary mb-2">500+</div>
+              <div className="text-lg text-muted-foreground">Happy Clients</div>
+            </div>
+            <div className="animate-fade-in" style={{animationDelay: '0.1s'}}>
+              <Star className="w-12 h-12 text-accent mx-auto mb-4" />
+              <div className="text-3xl md:text-4xl font-bold text-primary mb-2">4.9/5</div>
+              <div className="text-lg text-muted-foreground">Average Rating</div>
+            </div>
+            <div className="animate-fade-in" style={{animationDelay: '0.2s'}}>
+              <Award className="w-12 h-12 text-accent mx-auto mb-4" />
+              <div className="text-3xl md:text-4xl font-bold text-primary mb-2">95%</div>
+              <div className="text-lg text-muted-foreground">Return to Activity</div>
+            </div>
+            <div className="animate-fade-in" style={{animationDelay: '0.3s'}}>
+              <Heart className="w-12 h-12 text-accent mx-auto mb-4" />
+              <div className="text-3xl md:text-4xl font-bold text-primary mb-2">10+</div>
+              <div className="text-lg text-muted-foreground">Years of Success</div>
+            </div>
           </div>
         </div>
+      </section>
+
+      <div className="container mx-auto py-16 px-4">
+        <div className="max-w-6xl mx-auto">
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {testimonials.map((testimonial, index) => (
+              <Card key={testimonial.id} className="h-full royal-shadow hover:scale-105 transition-all duration-300 bg-card/50 backdrop-blur-sm border-accent/20 animate-fade-in" style={{animationDelay: `${index * 0.1}s`}}>
+                <CardHeader className="pb-4 relative">
+                  <div className="absolute top-4 right-4">
+                    <Quote className="w-8 h-8 text-accent/30" />
+                  </div>
+                  <div className="flex items-center justify-between mb-4">
+                    <StarRating rating={testimonial.rating} />
+                  </div>
+                  <div className="mb-4">
+                    <div className="w-16 h-16 bg-accent/10 rounded-full flex items-center justify-center mx-auto mb-3">
+                      <span className="text-xl font-bold text-accent">
+                        {testimonial.name.split(' ').map(n => n[0]).join('')}
+                      </span>
+                    </div>
+                    <h3 className="font-bold text-xl text-primary text-center">{testimonial.name}</h3>
+                    <p className="text-sm text-accent font-semibold text-center">{testimonial.surgery}</p>
+                  </div>
+                </CardHeader>
+                <CardContent>
+                  <blockquote className="text-muted-foreground italic leading-relaxed text-center">
+                    "{testimonial.quote}"
+                  </blockquote>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+
+          <div className="text-center mt-16">
+            <Card className="max-w-2xl mx-auto royal-shadow bg-card/50 backdrop-blur-sm border-accent/20">
+              <CardHeader>
+                <CardTitle className="text-3xl text-primary mb-4">Ready for Your Success Story?</CardTitle>
+                <CardDescription className="text-lg text-muted-foreground">
+                  Join hundreds of clients who have transformed their recovery journey with our expert guidance.
+                </CardDescription>
+              </CardHeader>
+              <CardContent>
+                <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                  <Button size="lg" className="bg-accent hover:bg-accent/90 text-accent-foreground px-8 py-4 text-lg royal-shadow gold-glow" asChild>
+                    <Link href="/contact">
+                      <Calendar className="w-5 h-5 mr-2" />
+                      Start Your Journey
+                    </Link>
+                  </Button>
+                  <Button variant="outline" size="lg" className="border-accent/30 text-primary hover:bg-accent/10 px-8 py-4 text-lg glass-effect royal-shadow" asChild>
+                    <Link href="/trainers">
+                      <Users className="w-5 h-5 mr-2" />
+                      Meet Our Trainers
+                    </Link>
+                  </Button>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
       </div>
+    </div>
     </div>
   );
 }
